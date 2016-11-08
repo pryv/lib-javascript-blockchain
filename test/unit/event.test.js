@@ -4,7 +4,7 @@ var bcLib = require('../../src/');
 
 
 describe('Event', function () {
-  var validHash = '0c8ddc65165a751d5c6bf7602bcf7680d8b9b8700a1454b1bc7f3ae8dec65a5f';
+  var validHash = 'd86f39ccf5451e78ecf9d5f06c62e3b5ffa9115e801ba1806ec0ce704d99943a';
 
   describe('Hash', function () {
 
