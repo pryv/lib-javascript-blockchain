@@ -32,7 +32,7 @@ function objectStr(key, item, definition) {
   // does the definition allows null?
   if (item === null || type === 'undefined') {
     if (typeof definition.nullValue === 'undefined') {
-      throw new Error('item : [' + key + '] cannot be null');
+      throw new Error('property [' + key + '] cannot be null');
     }
     return definition.nullValue;
   }
@@ -45,7 +45,7 @@ function objectStr(key, item, definition) {
 
   // is the type the expected by the definition
   if (definition.type !== 'any' && definition.type !== type) {
-    throw new Error('item : [' + key + '] is not of expected type : ' + definition.type);
+    throw new Error('property [' + key + '] is not of expected type [' + definition.type + ']');
   }
 
 

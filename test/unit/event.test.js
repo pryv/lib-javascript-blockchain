@@ -1,6 +1,7 @@
 /*global describe, it, before*/
 
 var bcLib = require('../../src/');
+var should = require('should');
 
 
 describe('Event', function () {
@@ -18,6 +19,32 @@ describe('Event', function () {
       var hash1 = bcLib.event.hash(require('../data/eventA-v1-valid.json'));
       var hash2 = bcLib.event.hash(require('../data/eventA-v2-valid.json'));
       hash1.should.equal(hash2);
+      done();
+    });
+
+    it('Missing property should trigger an error', function (done) {
+      var err = null;
+      try {
+        bcLib.event.hash(require('../data/event-missing-id.json'));
+      } catch (e) {
+        err = e;
+      }
+      should.exist(err);
+      ('' + err).should.equal('Error: property [id] cannot be null');
+      done();
+    });
+
+
+
+    it('Invalid type should trigger an error', function (done) {
+      var err = null;
+      try {
+        bcLib.event.hash(require('../data/event-number-in-description.json'));
+      } catch (e) {
+        err = e;
+      }
+      should.exist(err);
+      ('' + err).should.equal('Error: property [description] is not of expected type [string]');
       done();
     });
 

@@ -1,0 +1,30 @@
+{
+  "time": 1477575221.247,
+  "streamId": "diary",
+  "tags": [],
+  "type": "picture/attached",
+  "content": null,
+  "attachments": [
+    {
+      "id": "ciusga35r000tgwg4hcz2i22u",
+      "fileName": "photo.jpg",
+      "type": "image/jpeg",
+      "size": 2561
+    },
+    {
+      "id": "ciusga35r000tgwg4hcz2i32u",
+      "type": "image/jpeg",
+      "fileName": "photo.jpg",
+      "size": 2561
+    }
+  ],
+  "description": "test\"te\"st",
+  "created": 1477575221.247,
+  "createdBy": "ciusga33w0004gwg436uhtqs2",
+  "modified": 1477575221.247,
+  "modifiedBy": "ciusga33w0004gwg436uhtqs2",
+  "clientData": {
+    "key1": "value1",
+    "key2": "value2"
+  }
+}
