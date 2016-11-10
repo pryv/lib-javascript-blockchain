@@ -6,9 +6,9 @@ Tools to interact with Pryv blockchain
 
 In this example we will use javascript as pseudo code examples. 
 
-`var rep;`: represent the stable representation of a JSON object. 
+ 
 
-- Representation is a valid JSON object. `JSON.parse(rep)` must be valid.
+- Representation is a valid JSON object. `JSON.parse(stableRep)` must be valid. (`stableRep;` is a stable representation of a JSON object as a string.)
 - JSON representation should not have any 'spaces' between seprators. 
 `{"keyA":"valueA","keyB":["item0B","item1B"]}` is valid,   
 while `{"keyA": "valueA", "keyB": ["item0B", "item1B"]}` is not. 
@@ -64,23 +64,56 @@ Be sure that every implementation of this hash follow the very same scheme.
 
 **Properties expected in an event object**
 
+Properties with a null values, will be ignored from the representation. 
+
+Special attention is required for 
+
+- **tags**: if `[]` (empty array) is ignored from the representation.
+- **trashed**: if `false` is ignored from the representation.
+
+**Example**
+
 ```javascript
-var items = {
-  'created': {type: 'number'},
-  'createdBy': {type: 'string'},
-  'id': {type: 'string'},
-  'modified': {type: 'number'},
-  'modifiedBy': {type: 'string'},
-  'streamId': {type: 'string'},
-  'time': {type: 'number'},
-  'type': {type: 'string'},
-  'attachments': {type: 'array', nullValue: null},
-  'clientData': {type: 'object', nullValue: null},
-  'content': {type: 'any', nullValue: null},
-  'description': {type: 'string', nullValue: null},
-  'duration': {type: 'number', nullValue: null},
-  'references': {type: 'array', nullValue: null},
-  'tags': {type: 'array', nullValue: '[]'},
-  'trashed': {type: 'boolean', nullValue: false}
-};
+{
+  "id": "ciusga35r000sgwg4o1sr1j5q",
+  "time": 1477575221.247,
+  "streamId": "diary",
+  "type": "picture/attached",
+  "tags": [],
+  "description":  "test\"te\"st",
+  "attachments": [
+    {
+      "id": "ciusga35r000tgwg4hcz2i22u",
+      "fileName": "photo.jpg",
+      "type": "image/jpeg",
+      "size": 2561
+    },
+    {
+      "id": "ciusga35r000tgwg4hcz2i32u",
+      "fileName": "photo.jpg",
+      "type": "image/jpeg",
+      "size": 2561
+    }
+  ],
+  "created": 1477575221.247,
+  "createdBy": "ciusga33w0004gwg436uhtqs2",
+  "modified": 1477575221.247,
+  "modifiedBy": "ciusga33w0004gwg436uhtqs2",
+  "trashed": false,
+  "clientData": {
+    "key2": "value2",
+    "key1": "value1"
+  }
+}
 ```
+
+Stable representation:
+
+```javascript
+{"attachments":[{"fileName":"photo.jpg","id":"ciusga35r000tgwg4hcz2i22u","size":2561,"type":"image/jpeg"},{"fileName":"photo.jpg","id":"ciusga35r000tgwg4hcz2i32u","size":2561,"type":"image/jpeg"}],"clientData":{"key1":"value1","key2":"value2"},"created":1477575221.247,"createdBy":"ciusga33w0004gwg436uhtqs2","description":"test\"te\"st","id":"ciusga35r000sgwg4o1sr1j5q","modified":1477575221.247,"modifiedBy":"ciusga33w0004gwg436uhtqs2","streamId":"diary","time":1477575221.247,"type":"picture/attached"}
+```
+
+
+
+
+
