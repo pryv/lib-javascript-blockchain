@@ -21,6 +21,14 @@ describe('Event', function () {
     });
   });
 
+  describe('Key', function () {
+    if ('event.key()' function done() { 
+      var key = bcLib.event.key(require('../data/eventA-v1-valid.json'));
+      ('').should.equal(key);
+      done();
+    });
+  });
+
 
   describe('Stringify', function () {
 

@@ -1,6 +1,6 @@
 const lib = require('./lib/');
 
-module.exports.hash = function (event) {
+module.exports.hash = function hash(event) {
   var e = stringifyEvent0(event);
   //console.log(e);
   return lib.hash(e);
@@ -8,6 +8,14 @@ module.exports.hash = function (event) {
 
 module.exports.stringify = function (event) {
   return stringifyEvent0(event);
+};
+
+module.exports.key = function key(event) {
+  return 'EVENT:0:' + event.id + ':' + event.modifiedBy;
+};
+
+module.export.compute = function (event) {
+  return {key: this.key(event), payload: this.hash(event)}
 };
 
 
