@@ -14,7 +14,7 @@ module.exports.key = function key(event) {
   return 'EVENT:0:' + event.id + ':' + event.modifiedBy;
 };
 
-module.export.compute = function (event) {
+module.exports.compute = function (event) {
   return {key: this.key(event), payload: this.hash(event)}
 };
 

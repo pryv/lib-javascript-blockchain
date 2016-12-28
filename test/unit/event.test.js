@@ -1,6 +1,7 @@
 /*global describe, it, before*/
 
 var bcLib = require('../../src/');
+var should = require('should');
 
 
 describe('Event', function () {
@@ -22,9 +23,9 @@ describe('Event', function () {
   });
 
   describe('Key', function () {
-    if ('event.key()' function done() { 
+    it('event.key()', function (done) { 
       var key = bcLib.event.key(require('../data/eventA-v1-valid.json'));
-      ('').should.equal(key);
+      ('EVENT:0:ciusga35r000sgwg4o1sr1j5q:ciusga33w0004gwg436uhtqs2').should.equal(key);
       done();
     });
   });
@@ -52,6 +53,21 @@ describe('Event', function () {
       var resultStr = bcLib.event.stringify(original);
       JSON.parse(resultStr);
       // TODO test could be completed with deep equals
+
+      done();
+    });
+  });
+
+
+  describe('Compute', function () {
+    it('Valid Object', function (done) {
+      var original = require('../data/eventA-v1-valid.json');
+      var result = bcLib.event.compute(original);
+      should.exist(result.key);
+      ('EVENT:0:ciusga35r000sgwg4o1sr1j5q:ciusga33w0004gwg436uhtqs2').should.equal(result.key);
+      should.exist(result.payload);
+      result.payload.should.equal(validHash);
+
 
       done();
     });
