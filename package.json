@@ -1,7 +1,7 @@
 {
-  "name": "pryv-blockchain",
+  "name": "pryv-lib-js-stable-object-representation",
   "version": "0.0.1",
-  "homepage": "https://github.com/pryv/lib-javascript-blockchain",
+  "homepage": "https://github.com/pryv/lib-js-stable-object-representation",
   "description": "Tools for Pryv Blockchain",
   "keywords": [
     "Blockchain",
@@ -9,10 +9,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/pryv/lib-javascript-blockchain"
+    "url": "git://github.com/pryv/lib-js-stable-object-representation"
   },
   "bugs": {
-    "url": "https://github.com/pryv/lib-javascript-blockchain/issues"
+    "url": "https://github.com/pryv/lib-js-stable-object-representation/issues"
   },
   "author": {
     "name": "Pryv"
