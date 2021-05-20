@@ -11,7 +11,7 @@ module.exports.stringify = function (event) {
 };
 
 module.exports.key = function key(event) {
-  return 'EVENT:0:' + event.id + ':' + event.modifiedBy;
+  return 'EVENT:0:' + event.id + ':' + event.modified;
 };
 
 module.exports.compute = function (event) {

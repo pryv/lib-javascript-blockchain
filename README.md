@@ -1,6 +1,9 @@
-# Pryv Javascript tools for blockchain
+# Pryv Javascript tools to create checksums on Pryv.io data item 
 
-Tools to interact with Pryv blockchain
+It provides utility to 
+1. Create a stable representation of a JSON object (all keys are ordered)
+2. Makes a SHA256 string of this stable representation
+3. Creates a unique key to finds back the data item
 
 ### General rules to create stable representation of Pryv data
 

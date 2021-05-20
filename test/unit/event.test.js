@@ -25,7 +25,7 @@ describe('Event', function () {
   describe('Key', function () {
     it('event.key()', function (done) { 
       var key = bcLib.event.key(require('../data/eventA-v1-valid.json'));
-      ('EVENT:0:ciusga35r000sgwg4o1sr1j5q:ciusga33w0004gwg436uhtqs2').should.equal(key);
+      ('EVENT:0:ciusga35r000sgwg4o1sr1j5q:1477575221.247').should.equal(key);
       done();
     });
   });
@@ -64,7 +64,7 @@ describe('Event', function () {
       var original = require('../data/eventA-v1-valid.json');
       var result = bcLib.event.compute(original);
       should.exist(result.key);
-      ('EVENT:0:ciusga35r000sgwg4o1sr1j5q:ciusga33w0004gwg436uhtqs2').should.equal(result.key);
+      ('EVENT:0:ciusga35r000sgwg4o1sr1j5q:1477575221.247').should.equal(result.key);
       should.exist(result.payload);
       result.payload.should.equal(validHash);
 
