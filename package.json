@@ -1,6 +1,6 @@
 {
   "name": "@pryv/stable-object-representation",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "homepage": "https://github.com/pryv/lib-js-stable-object-representation",
   "description": "Stable JSON Object representation",
   "keywords": [
@@ -30,9 +30,9 @@
     }
   ],
   "dependencies": {
-    "nyc": "^15.1.0"
   },
   "devDependencies": {
+    "nyc": "^15.1.0",
     "istanbul": "^0.4.5",
     "mocha": "^8.4.0",
     "should": "^11.1.1"

@@ -22,11 +22,19 @@ module.exports.compute = function (event) {
 // -- add null properties of events
 
 function stringifyEvent0(event) {
+  // costlty but portable cloning
+  const e =  JSON.parse(JSON.stringify(event))
   // remove trashed property if false
-  if (! event.trashed) { delete event.trashed; }
+  if (! e.trashed) { delete e.trashed; }
   // remove tags if array is empty
-  if (event.tags && event.tags.length === 0) { delete event.tags; }
-  return lib.stringify(event, true);
+  if (e.tags && e.tags.length === 0) { delete e.tags; }
+  // remove readToken from attachements
+  if (e.attachments) { 
+    for (attachment of e.attachments) {
+      delete  attachment.readToken;
+    }
+  }
+  return lib.stringify(e, true);
 }
 
 

@@ -10,13 +10,15 @@
       "id": "ciusga35r000tgwg4hcz2i22u",
       "fileName": "photo.jpg",
       "type": "image/jpeg",
-      "size": 2561
+      "size": 2561,
+      "readToken": "toto"
     },
     {
       "id": "ciusga35r000tgwg4hcz2i32u",
       "type": "image/jpeg",
       "fileName": "photo.jpg",
-      "size": 2561
+      "size": 2561,
+      "readToken": "toto"
     }
   ],
   "description": "test\"te\"st",

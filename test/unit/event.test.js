@@ -9,8 +9,8 @@ describe('Event', function () {
 
   describe('Hash', function () {
     it('Compute as expected', function (done) {
-      var hash = bcLib.event.hash(require('../data/eventA-v1-valid.json'));
-      hash.should.equal(validHash);
+      var { payload }  = bcLib.event.compute(require('../data/eventA-v1-valid.json'));
+      validHash.should.equal(payload);
       done();
     });
 
