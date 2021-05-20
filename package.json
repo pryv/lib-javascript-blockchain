@@ -1,10 +1,11 @@
 {
-  "name": "pryv-lib-js-stable-object-representation",
-  "version": "0.0.1",
+  "name": "@pryv/stable-object-representation",
+  "version": "0.0.2",
   "homepage": "https://github.com/pryv/lib-js-stable-object-representation",
-  "description": "Tools for Pryv Blockchain",
+  "description": "Stable JSON Object representation",
   "keywords": [
-    "Blockchain",
+    "Stable",
+    "JSON",
     "Pryv"
   ],
   "repository": {
