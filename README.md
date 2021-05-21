@@ -30,20 +30,6 @@ Returns an object equivalent of `{ key: key(event), hash: hash(event) }`
 }
 ```
 
-. `key`
-  . structure: `{item code}:{item code version}:{item id}:{item version}` usually the item version is the `modified` date property
-  . They key is unique it is used to find a corresponding checksum.
-. `payload`
-  . structure: `{item code}:{checksum version}:{checksum}`
-
-## Item code versionning 
-
-. `EVENT:0:` correspond to `item id = event.id` and `item version = event.modified`
-
-## Ckecksum versionning 
-
-. `EVENT:0:` correspond to **SHA 256** encoding of current implementation of `stableRepresentation.event.stringify(event)`
-
 ### General rules to create stable representation of Pryv data
 
 In this example we will use javascript as pseudo code examples. 
@@ -98,13 +84,22 @@ function utf16StrCompare(a, b) {
 
 ## Event scheme hash: v0
 
-### Key
+. `key`
+  . structure: `{item code}:{item code version}:{item id}:{item version}` usually the item version is the `modified` date property
+  . They key is unique it is used to find a corresponding checksum.
+. `payload`
+  . structure: `{item code}:{checksum version}:{checksum}`
 
-### Hash
+### Item code versionning (key)
 
-Be sure that every implementation of this hash follow the very same scheme.
+. `EVENT:0:` correspond to `item id = event.id` and `item version = event.modified`
 
-**Properties expected in an event object**
+### Ckecksum versionning (hash)
+
+. `EVENT:0:` correspond to **SHA 256** encoding of current implementation of `stableRepresentation.event.stringify(event)`
+
+
+### Properties expected in an event object
 
 Properties with a null values, will be ignored from the representation. 
 
@@ -112,6 +107,7 @@ Special attention is required for
 
 - **tags**: if `[]` (empty array) is ignored from the representation.
 - **trashed**: if `false` is ignored from the representation.
+- **attachments.readToken**: eventual fields should be ignored in the representation.
 
 **Example**
 
@@ -128,13 +124,15 @@ Special attention is required for
       "id": "ciusga35r000tgwg4hcz2i22u",
       "fileName": "photo.jpg",
       "type": "image/jpeg",
-      "size": 2561
+      "size": 2561,
+      "readToken": "cjasdashdhgad-asdjhasdhsdh"
     },
     {
       "id": "ciusga35r000tgwg4hcz2i32u",
       "fileName": "photo.jpg",
       "type": "image/jpeg",
-      "size": 2561
+      "size": 2561,
+      "readToken": "cjasdashdhgad-asdjhasdhsdh"
     }
   ],
   "created": 1477575221.247,
