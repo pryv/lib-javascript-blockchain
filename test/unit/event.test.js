@@ -5,7 +5,7 @@ var should = require('should');
 
 
 describe('Event', function () {
-  var validHash = 'fb14d357bfeb94ae66bb19e8a59a16f98f0409a65bc585bdf8342312d21ba62b';
+  var validHash = 'EVENT:0:fb14d357bfeb94ae66bb19e8a59a16f98f0409a65bc585bdf8342312d21ba62b';
 
   describe('Hash', function () {
     it('Compute as expected', function (done) {

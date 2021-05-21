@@ -5,6 +5,45 @@ It provides utility to
 2. Makes a SHA256 string of this stable representation
 3. Creates a unique key to finds back the data item
 
+## Usage & Format
+
+### stringify: `stableRepresentation.event.stringify(event)` 
+
+Returns a "stable" JSON reprersentation of an event as described bellow.
+
+### hash: `stableRepresentation.event.hash(event)` 
+
+Returns a **hash** in **SHA256** of "stable" JSON reprersentation of an event.
+
+### key: `stableRepresentation.event.key(event)` 
+
+Returns a **unique key** for this event version.
+
+### compute: `stableRepresentation.event.compute(event)` 
+
+Returns an object equivalent of `{ key: key(event), hash: hash(event) }`
+
+```
+{
+  key: 'EVENT:0:ckoxy0giw000hrs9yvi3rnlfm:1621578570.151',
+  payload: 'EVENT:0:8171f041076763a068e6c373cd20ef62d5a3b564f3b0fa4cf233488549886e3d'
+}
+```
+
+. `key`
+  . structure: `{item code}:{item code version}:{item id}:{item version}` usually the item version is the `modified` date property
+  . They key is unique it is used to find a corresponding checksum.
+. `payload`
+  . structure: `{item code}:{checksum version}:{checksum}`
+
+## Item code versionning 
+
+. `EVENT:0:` correspond to `item id = event.id` and `item version = event.modified`
+
+## Ckecksum versionning 
+
+. `EVENT:0:` correspond to **SHA 256** encoding of current implementation of `stableRepresentation.event.stringify(event)`
+
 ### General rules to create stable representation of Pryv data
 
 In this example we will use javascript as pseudo code examples. 

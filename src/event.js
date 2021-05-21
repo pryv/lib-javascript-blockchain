@@ -2,8 +2,7 @@ const lib = require('./lib/');
 
 module.exports.hash = function hash(event) {
   var e = stringifyEvent0(event);
-  //console.log(e);
-  return lib.hash(e);
+  return 'EVENT:0:' + lib.hash(e);
 };
 
 module.exports.stringify = function (event) {
