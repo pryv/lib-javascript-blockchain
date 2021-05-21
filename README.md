@@ -153,7 +153,9 @@ Stable representation:
 {"attachments":[{"fileName":"photo.jpg","id":"ciusga35r000tgwg4hcz2i22u","size":2561,"type":"image/jpeg"},{"fileName":"photo.jpg","id":"ciusga35r000tgwg4hcz2i32u","size":2561,"type":"image/jpeg"}],"clientData":{"key1":"value1","key2":"value2"},"created":1477575221.247,"createdBy":"ciusga33w0004gwg436uhtqs2","description":"test\"te\"st","id":"ciusga35r000sgwg4o1sr1j5q","modified":1477575221.247,"modifiedBy":"ciusga33w0004gwg436uhtqs2","streamId":"diary","time":1477575221.247,"type":"picture/attached"}
 ```
 
+### License
 
+BSD-3-Clause
 
 
 
