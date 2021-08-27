@@ -1,7 +1,7 @@
 {
   "name": "@pryv/stable-object-representation",
   "version": "1.0.0",
-  "private": true,
+  "private": false,
   "description": "Stable JSON Object representation",
   "keywords": [
     "Stable",
