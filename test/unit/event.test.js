@@ -11,7 +11,7 @@ var should = require('should');
 
 
 describe('Event', function () {
-  var validHash = 'EVENT:0:sha256-+xTTV7/rlK5muxnopZoW+Y8ECaZbxYW9+DQjEtIbpis=';
+  var validHash = 'EVENT:0:sha256-LOpcUCYOtvP6iiqAEe2pYY1qR/zouCf8maEPsMYBxv0=';
 
   describe('Hash', function () {
     it('Compute as expected', function (done) {

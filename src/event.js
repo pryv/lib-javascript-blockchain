@@ -39,6 +39,15 @@ function stringifyEvent0(event) {
       delete  attachment.readToken;
     }
   }
+  // make signature on streamIds not streamId
+  if (e.streamId != null) {
+    if (e.streamIds != null) { // e.streamIds[0] should be equal to e.streamId
+      if (e.streamId != e.streamIds) throw(new Error('streamId should equal to first streamIds[] item'));
+    } else {
+      e.streamIds = [e.streamId];
+    }
+    delete e.streamId;
+  }
   return lib.stringify(e, true);
 }
 
