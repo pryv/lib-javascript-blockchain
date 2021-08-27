@@ -2,7 +2,7 @@
 
 It provides utility to 
 1. Create a stable representation of a JSON object (all keys are ordered)
-2. Makes a SHA256 string of this stable representation
+2. Makes a Hash string of this stable representation (default SHA256)
 3. Creates a unique key to finds back the data item
 
 ## Usage & Format
@@ -11,22 +11,24 @@ It provides utility to
 
 Returns a "stable" JSON reprersentation of an event as described bellow.
 
-### hash: `stableRepresentation.event.hash(event)` 
+### hash: `stableRepresentation.event.hash(event, [algorithm])` 
 
-Returns a **hash** in **SHA256** of "stable" JSON reprersentation of an event.
+Returns a **hash** of "stable" JSON reprersentation of an event, prefixed with 'EVENT:O' and encoded in base64 following **subresource integrity (SRI)** specifcation [See W3.org/TR/SRI](https://www.w3.org/TR/SRI/). By default SHA256 is used.
+
+Example: `EVENT:0:sha256-X48E9qOokqqrvdts8nOJRJN3OWDUoyWxBf7kbu9DBPE=` 
 
 ### key: `stableRepresentation.event.key(event)` 
 
 Returns a **unique key** for this event version.
 
-### compute: `stableRepresentation.event.compute(event)` 
+### compute: `stableRepresentation.event.compute(event, [algorithm])` 
 
-Returns an object equivalent of `{ key: key(event), hash: hash(event) }`
+Returns an object equivalent of `{ key: key(event), hash: hash(event, algorithm) }`
 
 ```
 {
   key: 'EVENT:0:ckoxy0giw000hrs9yvi3rnlfm:1621578570.151',
-  payload: 'EVENT:0:8171f041076763a068e6c373cd20ef62d5a3b564f3b0fa4cf233488549886e3d'
+  payload: 'EVENT:0:sha256-X48E9qOokqqrvdts8nOJRJN3OWDUoyWxBf7kbu9DBPE='
 }
 ```
 
@@ -153,9 +155,10 @@ Stable representation:
 {"attachments":[{"fileName":"photo.jpg","id":"ciusga35r000tgwg4hcz2i22u","size":2561,"type":"image/jpeg"},{"fileName":"photo.jpg","id":"ciusga35r000tgwg4hcz2i32u","size":2561,"type":"image/jpeg"}],"clientData":{"key1":"value1","key2":"value2"},"created":1477575221.247,"createdBy":"ciusga33w0004gwg436uhtqs2","description":"test\"te\"st","id":"ciusga35r000sgwg4o1sr1j5q","modified":1477575221.247,"modifiedBy":"ciusga33w0004gwg436uhtqs2","streamId":"diary","time":1477575221.247,"type":"picture/attached"}
 ```
 
-### License
-
-BSD-3-Clause
+##
 
 
-
+# License
+Copyright (C) 2020-2021 Pryv S.A. https://pryv.com 
+This file is part of Open-Pryv.io and released under BSD-Clause-3 License
+SPDX-License-Identifier: BSD-3-Clause

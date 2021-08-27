@@ -1,41 +1,40 @@
 {
   "name": "@pryv/stable-object-representation",
-  "version": "0.0.4",
-  "homepage": "https://github.com/pryv/lib-js-stable-object-representation",
+  "version": "1.0.0",
+  "private": true,
   "description": "Stable JSON Object representation",
   "keywords": [
     "Stable",
     "JSON",
     "Pryv"
   ],
+  "homepage": "https://github.com/pryv/lib-js-stable-object-representation",
+  "bugs": {
+    "url": "https://github.com/pryv/lib-js-stable-object-representation/issues"
+  },
   "repository": {
     "type": "git",
     "url": "git://github.com/pryv/lib-js-stable-object-representation"
   },
-  "bugs": {
-    "url": "https://github.com/pryv/lib-js-stable-object-representation/issues"
-  },
-  "author": {
-    "name": "Pryv S.A."
-  },
-  "main": "src/index.js",
-  "scripts": {
-    "test": "./node_modules/mocha/bin/mocha --reporter spec  test/**/*.test.js",
-    "test-cover": "./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- -R spec ./test/**/*.test.js"
-  },
+  "license": "BSD-3-Clause",
+  "author": "Pryv S.A. <info@pryv.com> (https://pryv.com)",
   "contributors": [
     {
       "name": "Pierre-Mikael Legris",
       "email": "perki@pryv.com"
     }
   ],
-  "dependencies": {
+  "main": "src/index.js",
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha --reporter spec  test/**/*.test.js",
+    "test-cover": "./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- -R spec ./test/**/*.test.js",
+    "license": "node_modules/.bin/source-licenser licensing/config.yml licensing/LICENSE.src ./"
   },
   "devDependencies": {
-    "nyc": "^15.1.0",
     "istanbul": "^0.4.5",
     "mocha": "^8.4.0",
-    "should": "^11.1.1"
-  },
-  "license": "BSD-3-Clause"
+    "nyc": "^15.1.0",
+    "should": "^11.1.1",
+    "source-licenser": "^1.0.4"
+  }
 }

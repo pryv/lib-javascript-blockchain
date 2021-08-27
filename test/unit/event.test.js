@@ -1,3 +1,9 @@
+/**
+ * @license
+ * Copyright (C) 2020-2021 Pryv S.A. https://pryv.com 
+ * This file is part of Open-Pryv.io and released under BSD-Clause-3 License
+ * SPDX-License-Identifier: BSD-3-Clause
+ */
 /*global describe, it, before*/
 
 var bcLib = require('../../src/');
@@ -5,7 +11,7 @@ var should = require('should');
 
 
 describe('Event', function () {
-  var validHash = 'EVENT:0:fb14d357bfeb94ae66bb19e8a59a16f98f0409a65bc585bdf8342312d21ba62b';
+  var validHash = 'EVENT:0:sha256-+xTTV7/rlK5muxnopZoW+Y8ECaZbxYW9+DQjEtIbpis=';
 
   describe('Hash', function () {
     it('Compute as expected', function (done) {
