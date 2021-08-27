@@ -28,7 +28,7 @@ Returns an object equivalent of `{ key: key(event), hash: hash(event, algorithm)
 ```
 {
   key: 'EVENT:0:ckoxy0giw000hrs9yvi3rnlfm:1621578570.151',
-  payload: 'EVENT:0:sha256-X48E9qOokqqrvdts8nOJRJN3OWDUoyWxBf7kbu9DBPE='
+  integrity: 'EVENT:0:sha256-X48E9qOokqqrvdts8nOJRJN3OWDUoyWxBf7kbu9DBPE='
 }
 ```
 
@@ -89,8 +89,8 @@ function utf16StrCompare(a, b) {
 . `key`
   . structure: `{item code}:{item code version}:{item id}:{item version}` usually the item version is the `modified` date property
   . They key is unique it is used to find a corresponding checksum.
-. `payload`
-  . structure: `{item code}:{checksum version}:{checksum}`
+. `integrity`
+  . structure: `{item code}:{item code version}:{algorithm}-{checksum base64 encode}`
 
 ### Item code versionning (key)
 
@@ -98,8 +98,7 @@ function utf16StrCompare(a, b) {
 
 ### Ckecksum versionning (hash)
 
-. `EVENT:0:` correspond to **SHA 256** encoding of current implementation of `stableRepresentation.event.stringify(event)`
-
+. `EVENT:0:` correspond to encoding of current implementation of `stableRepresentation.event.stringify(event)`
 
 ### Properties expected in an event object
 

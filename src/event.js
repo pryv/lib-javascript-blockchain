@@ -20,7 +20,7 @@ module.exports.key = function key(event) {
 };
 
 module.exports.compute = function (event) {
-  return {key: this.key(event), payload: this.hash(event)}
+  return {key: this.key(event), integrity: this.hash(event)}
 };
 
 

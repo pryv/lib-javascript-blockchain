@@ -15,8 +15,8 @@ describe('Event', function () {
 
   describe('Hash', function () {
     it('Compute as expected', function (done) {
-      var { payload }  = bcLib.event.compute(require('../data/eventA-v1-valid.json'));
-      validHash.should.equal(payload);
+      var { integrity }  = bcLib.event.compute(require('../data/eventA-v1-valid.json'));
+      validHash.should.equal(integrity);
       done();
     });
 
@@ -71,8 +71,8 @@ describe('Event', function () {
       var result = bcLib.event.compute(original);
       should.exist(result.key);
       ('EVENT:0:ciusga35r000sgwg4o1sr1j5q:1477575221.247').should.equal(result.key);
-      should.exist(result.payload);
-      result.payload.should.equal(validHash);
+      should.exist(result.integrity);
+      result.integrity.should.equal(validHash);
 
 
       done();
