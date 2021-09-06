@@ -28,7 +28,9 @@ module.exports.compute = function (event) {
 
 function stringifyEvent0(event) {
   // costlty but portable cloning
-  const e =  JSON.parse(JSON.stringify(event))
+  const e =  JSON.parse(JSON.stringify(event));
+  // remove integrity for computation :) 
+  delete e.integrity;
   // remove trashed property if false
   if (! e.trashed) { delete e.trashed; }
   // remove tags if array is empty
