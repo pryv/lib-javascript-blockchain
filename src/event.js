@@ -43,6 +43,8 @@ function stringifyEvent0(event) {
       delete  attachment.readToken;
     }
   }
+  // remove null deleted property
+  if (e.deleted == null) { delete e.deleted; }
   // make signature on streamIds not streamId
   if (e.streamId != null) {
     if (e.streamIds != null) { // e.streamIds[0] should be equal to e.streamId
