@@ -33,6 +33,8 @@ function stringifyEvent0(event) {
   delete e.integrity;
   // remove eventual "headId" (Internal state of Pryv.io for history tracking)
   delete e.headId;
+  // remove eventual "endTime" (Internal state of Pryv.io - duration in API)
+  delete e.endTime;
   // remove trashed property if false
   if (! e.trashed) { delete e.trashed; }
   // remove tags if array is empty
