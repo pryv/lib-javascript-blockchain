@@ -95,10 +95,12 @@ function utf16StrCompare(a, b) {
 ### Item code versionning (key)
 
 . `EVENT:0:` correspond to `item id = event.id` and `item version = event.modified`
+. `EVENT_DELETED:0:` correspond to `item id = event.id` and `item version = event.deleted`
 
 ### Ckecksum versionning (hash)
 
 . `EVENT:0:` correspond to encoding of current implementation of `stableRepresentation.event.stringify(event)`
+. `EVENT_DELETED:0:` correspond to encoding of current implementation of `stableRepresentation.event.stringify(event)`
 
 ### Properties expected in an event object
 

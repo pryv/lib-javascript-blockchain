@@ -77,6 +77,19 @@ describe('Event', function () {
 
       done();
     });
+
+    it('Deleted Event', function (done) {
+      var deletedValidHash = 'EVENT_DELETED:0sha256-OzOsOzfm6ik+WDddriJ4JGeKlbxcgtdu5Yh1fJD06Pk=';
+      var original = require('../data/eventC-deleted.json');
+      var result = bcLib.event.compute(original);
+      should.exist(result.key);
+      ('EVENT_DELETED:0:ciusga35r000sgwg4o1sr1j5q:1477575289.12').should.equal(result.key);
+      should.exist(result.integrity);
+      result.integrity.should.equal(deletedValidHash);
+
+
+      done();
+    });
   });
 
 });
