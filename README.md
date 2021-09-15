@@ -112,6 +112,7 @@ Special attention is required for
 - **tags**: if `[]` (empty array) is ignored from the representation.
 - **trashed**: if `false` is ignored from the representation.
 - **deleted**: if `null` is ignored from the representation.
+- **duration**: if `null` is ignored from the representation.
 - **streamId**: if exists is replaced by `streamIds` whith the value `[streamId]`
 - **attachments.readToken**: eventual fields should be ignored in the representation.
 

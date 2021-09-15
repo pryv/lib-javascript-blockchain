@@ -25,9 +25,10 @@ module.exports.key = function key(event) {
 };
 
 module.exports.compute = function (event) {
-  return {key: this.key(event), integrity: this.hash(event)}
+  return { key: this.key(event), integrity: this.hash(event) }
 };
 
+// -- Internal to Pryv.io 
 function cleanDeleted(deleted) {
   return (deleted instanceof Date) ? deleted.getTime() / 1000 : deleted;
 }
@@ -42,7 +43,13 @@ function stringifyEvent0(event) {
   // remove eventual "headId" (Internal state of Pryv.io for history tracking)
   delete e.headId;
   // remove eventual "endTime" (Internal state of Pryv.io - duration in API)
-  delete e.endTime;
+  if (e.endTime != null) {
+    e.duration = e.endTime - e.time;
+    delete e.endTime;
+  }
+  // force duration property if null
+  if (e.duration == null) { delete e.duration; }
+
   // remove trashed property if false
   if (! e.trashed) { delete e.trashed; }
   // remove tags if array is empty
