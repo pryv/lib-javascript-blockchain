@@ -8,8 +8,7 @@ const lib = require('./lib/');
 
 module.exports.hash = function hash(event, algorithm) {
   var e = stringifyEvent0(event);
-  var header = (event.deleted != null) ? 'EVENT_DELETED:0' : 'EVENT:0:';
-  return header + lib.hash(e, algorithm);
+  return 'EVENT:0:' + lib.hash(e, algorithm);
 };
 
 module.exports.stringify = function (event) {
@@ -17,9 +16,9 @@ module.exports.stringify = function (event) {
 };
 
 module.exports.key = function key(event) {
-  if (event.deleted != null) {
+  if (event.modified == null) {
     var deletedTime = cleanDeleted(event.deleted)
-    return 'EVENT_DELETED:0:' + event.id + ':' + deletedTime;
+    return 'EVENT:0:' + event.id + ':' + deletedTime;
   }
   return 'EVENT:0:' + event.id + ':' + event.modified;
 };
@@ -37,13 +36,16 @@ function cleanDeleted(deleted) {
 
 function stringifyEvent0(event) {
   // costlty but portable cloning
-  const e = JSON.parse(JSON.stringify(event));
+  var e = JSON.parse(JSON.stringify(event));
   // remove integrity for computation :) 
   delete e.integrity;
   // remove eventual "headId" (Internal state of Pryv.io for history tracking)
   delete e.headId;
   // remove eventual "endTime" (Internal state of Pryv.io - duration in API)
-  if (e.endTime != null) {
+  if (e.endTime === null) {
+    e.duration = null;
+    delete e.endTime;
+  } else if (e.endTime != null) { // not undefinied, not null
     e.duration = e.endTime - e.time;
     delete e.endTime;
   }
@@ -69,7 +71,7 @@ function stringifyEvent0(event) {
   // make signature on streamIds not streamId
   if (e.streamId != null) {
     if (e.streamIds != null) { // e.streamIds[0] should be equal to e.streamId
-      if (e.streamId != e.streamIds) throw (new Error('streamId should equal to first streamIds[] item'));
+      if (e.streamId != e.streamIds[0]) throw (new Error('streamId should equal to first streamIds[] item'));
     } else {
       e.streamIds = [e.streamId];
     }

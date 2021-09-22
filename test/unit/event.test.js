@@ -78,12 +78,24 @@ describe('Event', function () {
       done();
     });
 
-    it('Deleted Event', function (done) {
-      var deletedValidHash = 'EVENT_DELETED:0sha256-OzOsOzfm6ik+WDddriJ4JGeKlbxcgtdu5Yh1fJD06Pk=';
+    it('Partially Deleted Event should use "modified" date for the key', function (done) {
+      var deletedValidHash = 'EVENT:0:sha256-OzOsOzfm6ik+WDddriJ4JGeKlbxcgtdu5Yh1fJD06Pk=';
       var original = require('../data/eventC-deleted.json');
       var result = bcLib.event.compute(original);
       should.exist(result.key);
-      ('EVENT_DELETED:0:ciusga35r000sgwg4o1sr1j5q:1477575289.12').should.equal(result.key);
+      ('EVENT:0:ciusga35r000sgwg4o1sr1j5q:1477575221.247').should.equal(result.key);
+      should.exist(result.integrity);
+      result.integrity.should.equal(deletedValidHash);
+
+
+      done();
+    });
+    it('Fully Deleted Event should use "deleted" date for the key', function (done) {
+      var deletedValidHash = 'EVENT:0:sha256-feuXLMMPjw7CQhibCidpxnYZg0Errh9TxNWsQOzfJyE=';
+      var original = require('../data/eventD-fully-deleted.json');
+      var result = bcLib.event.compute(original);
+      should.exist(result.key);
+      ('EVENT:0:ciusga35r000sgwg4o1sr1j5q:1477575289.13').should.equal(result.key);
       should.exist(result.integrity);
       result.integrity.should.equal(deletedValidHash);
 
