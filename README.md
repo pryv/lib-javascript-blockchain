@@ -111,9 +111,9 @@ Special attention is required for
 - **tags**: if `[]` (empty array) is ignored from the representation.
 - **trashed**: if `false` is ignored from the representation.
 - **deleted**: if `null` is ignored from the representation.
-- **duration**: if `null` is ignored from the representation.
+- **duration**: if `0` is ignored from the representation <=> to `undefined`.
 - **streamId**: if exists is replaced by `streamIds` whith the value `[streamId]`
-- **attachments.readToken**: eventual fields should be ignored in the representation.
+- **attachments.readToken**: is ignored in the representation.
 
 **Example**
 
@@ -122,6 +122,7 @@ Special attention is required for
   "id": "ciusga35r000sgwg4o1sr1j5q",
   "time": 1477575221.247,
   "streamId": "diary",
+  "duration": 0,
   "type": "picture/attached",
   "tags": [],
   "description":  "test\"te\"st",

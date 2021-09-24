@@ -78,6 +78,13 @@ describe('Event', function () {
       done();
     });
 
+    it('Duration 0 is ignored for computation', function (done) {
+      var original = require('../data/eventB-valid.json');
+      var duration0 = require('../data/eventB-0duration.json');
+      should.equal(bcLib.event.hash(original), bcLib.event.hash(duration0));
+      done();
+    });
+
     it('Partially Deleted Event should use "modified" date for the key', function (done) {
       var deletedValidHash = 'EVENT:0:sha256-OzOsOzfm6ik+WDddriJ4JGeKlbxcgtdu5Yh1fJD06Pk=';
       var original = require('../data/eventC-deleted.json');

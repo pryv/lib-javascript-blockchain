@@ -41,19 +41,20 @@ function stringifyEvent0(event) {
   delete e.integrity;
   // remove eventual "headId" (Internal state of Pryv.io for history tracking)
   delete e.headId;
+
   // remove eventual "endTime" (Internal state of Pryv.io - duration in API)
   if (e.endTime === null) {
     e.duration = null;
-    delete e.endTime;
-  } else if (e.endTime != null) { // not undefinied, not null
+  } else if (e.endTime !== undefined) { // not undefinied, not null
     e.duration = e.endTime - e.time;
-    delete e.endTime;
   }
-  // force duration property if null
-  if (e.duration == null) { delete e.duration; }
+  delete e.endTime;
+
+  // force duration property undefined if 0
+  if (e.duration === 0) { delete e.duration; }
 
   // remove trashed property if false
-  if (! e.trashed) { delete e.trashed; }
+  if (!e.trashed) { delete e.trashed; }
   // remove tags if array is empty
   if (e.tags && e.tags.length === 0) { delete e.tags; }
   // remove readToken from attachements
@@ -77,8 +78,6 @@ function stringifyEvent0(event) {
     }
     delete e.streamId;
   }
+
   return lib.stringify(e, true);
 }
-
-
-
