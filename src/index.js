@@ -6,5 +6,6 @@
  */
 
 module.exports = {
-  event : require('./event.js')
+  event : require('./event.js'),
+  access : require('./access.js')
 };

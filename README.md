@@ -95,11 +95,23 @@ function utf16StrCompare(a, b) {
 ### Item code versionning (key)
 
 . `EVENT:0:` correspond to `item id = event.id` and `item version = event.modified`
-. If `event.modified` is not present, then `event.deleted` is used.
+  . If `event.modified` is not present, then `event.deleted` is used.
+. `ACCESS:0:` correspond to `item id =access.id` and `item version = access.modified`
+  . If `access.modified` is not present, then `access.deleted` is used.
 
 ### Ckecksum versionning (hash)
 
-. `EVENT:0:` correspond to encoding of current implementation of `stableRepresentation.event.stringify(event)`
+. `EVENT:0:` correspond to encoding of current implementation of `stableRepresentation.event.stringify0(event)`
+. `ACCESS:0:` correspond to encoding of current implementation of `stableRepresentation.access.stringify0(access)`
+
+### Properties expected in an access object
+
+Properties with a null values, will be ignored from the representation. 
+
+Special attention is required for 
+
+- **integrity**: Obviously integrity is not taken for computation... 
+- **lastUsedd**: is ignored as too dynamic...
 
 ### Properties expected in an event object
 

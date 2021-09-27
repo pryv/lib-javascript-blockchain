@@ -1,0 +1,16 @@
+{
+  "id": "ckqhvwb5t0006bmpvyrqud5gr",
+  "token": "ckqhvwb5t0007bmpvtonls1nn",
+  "type": "shared",
+  "name": "For colleagues",
+  "permissions": [
+    {
+      "streamId": "work",
+      "level": "read"
+    }
+  ],
+  "created": 1624961123.201,
+  "createdBy": "ckqhvwb5s0001bmpvlxr7wfxs",
+  "modified": 1624961123.201,
+  "modifiedBy": "ckqhvwb5s0001bmpvlxr7wfxs"
+}
