@@ -44,8 +44,18 @@ function stringifyAccess0(access) {
   // delete lastUsed for computation .. 
   delete a.lastUsed; 
 
+   // delete calls for computation .. 
+   delete a.calls;
+
   // delete apiEndPoint for computation .. 
   delete a.apiEndpoint; 
 
+  // remove null deleted property
+  if (a.deleted == null) {
+    delete a.deleted;
+  } else {
+    a.deleted = cleanDeleted(access.deleted)
+  }
+  
   return lib.stringify(a, true);
 }
