@@ -111,7 +111,8 @@ Properties with a null values, will be ignored from the representation.
 Special attention is required for 
 
 - **integrity**: Obviously integrity is not taken for computation... 
-- **lastUsedd**: is ignored as too dynamic...
+- **apiEndpoint**: is ignored from computation (full domain name is part of settings not data)
+- **lastUsed**: is ignored as too dynamic...
 
 ### Properties expected in an event object
 

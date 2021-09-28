@@ -16,7 +16,6 @@ module.exports.stringify = function (access) {
 };
 
 module.exports.key = function key(access) {
-  console.log('XXXX', access)
   if (access.modified == null) {
     var deletedTime = cleanDeleted(access.deleted)
     return 'ACCESS:0:' + access.id + ':' + deletedTime;
@@ -44,6 +43,9 @@ function stringifyAccess0(access) {
 
   // delete lastUsed for computation .. 
   delete a.lastUsed; 
+
+  // delete apiEndPoint for computation .. 
+  delete a.apiEndpoint; 
 
   return lib.stringify(a, true);
 }

@@ -46,6 +46,17 @@ describe('Access', function () {
       result.integrity.should.equal(validHash);
       done();
     });
+
+
+    it('Valid Object with ignored properties', function (done) {
+      var ignored = require('../data/accessA-valid-ignored.json');
+      var result = bcLib.access.compute(ignored);
+      should.exist(result.key);
+      ('ACCESS:0:ckqhvwb5t0006bmpvyrqud5gr:1624961123.201').should.equal(result.key);
+      should.exist(result.integrity);
+      result.integrity.should.equal(validHash);
+      done();
+    });
   });
 
 });
