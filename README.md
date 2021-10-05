@@ -122,7 +122,7 @@ Properties with a null values, will be ignored from the representation.
 Special attention is required for 
 
 - **integrity**: Obviously integrity is not taken for computation... 
-- **tags**: if `[]` (empty array) is ignored from the representation.
+- **tags**: !! Are always ignored as deprecated and now included in streamIds
 - **trashed**: if `false` is ignored from the representation.
 - **deleted**: if `null` is ignored from the representation.
 - **duration**: if `0` is ignored from the representation <=> to `undefined`.

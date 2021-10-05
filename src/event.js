@@ -41,6 +41,8 @@ function stringifyEvent0(event) {
   delete e.integrity;
   // remove eventual "headId" (Internal state of Pryv.io for history tracking)
   delete e.headId;
+  // remove tags as now depreacted and includedd in streamIds
+  delete e.tags;
 
   // remove eventual "endTime" (Internal state of Pryv.io - duration in API)
   if (e.endTime === null) {
@@ -55,8 +57,6 @@ function stringifyEvent0(event) {
 
   // remove trashed property if false
   if (!e.trashed) { delete e.trashed; }
-  // remove tags if array is empty
-  if (e.tags && e.tags.length === 0) { delete e.tags; }
   // remove readToken from attachements
   if (e.attachments) {
     for (attachment of e.attachments) {
